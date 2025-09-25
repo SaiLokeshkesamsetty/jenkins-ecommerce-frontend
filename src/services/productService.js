@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://34.228.69.232:8080/back1/api/products";  // Updated Backend API URL
+const API_BASE_URL = "34.228.69.232:8080/api/products";  // Backend API URL
 
 // Fetch products by category (computers, mobiles, laptops, pendrives, or all)
 export const getProducts = async (category = "") => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/${category}`);
+    const response = await axios.get(${API_BASE_URL}/${category});
     return response.data;  // Return products array
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -15,5 +15,5 @@ export const getProducts = async (category = "") => {
 
 // Get product image URL
 export const getProductImageUrl = (imagePath) => {
-  return `${API_BASE_URL}/images/${imagePath}`;
+  return `http://localhost:8081/api/products/images/${imagePath}`;
 };
